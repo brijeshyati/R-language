@@ -14,7 +14,7 @@ library(filesstrings)
 
 entduplentry <- function(directory){
   start <- proc.time()
-  dir1 <- "D:\\temp\\ENT_Bandwidth\\"
+  dir1 <- "D:\\temp\\width\\"
   dir2 <- directory
   # find the files that you want
 		
@@ -44,14 +44,14 @@ entduplentry <- function(directory){
   dt <- setnames(dt, c("KEYFIELD","TIMESTAMP","COL_11","COL_12","COL_13","COL_14","COL_15","COL_16","COL_17","COL_18"))
   dt <- dt[order(dt$'KEYFIELD'),]
   print(dt)
-cat("########## step_3 duplicate against cktid","\n")
-  dupentid <- dt[allDup(dt$COL_16),]  ### function --> handling duplicate cktid
+cat("########## step_3 duplicate against ids","\n")
+  dupentid <- dt[allDup(dt$COL_16),]  ### function --> handling duplicate ids
   myVector <- c('COL_16', 'KEYFIELD')
   dupentid1 <- dupentid[, myVector,with=FALSE]
-  dupentid1 <- dupentid1[!grepl("N_E", dupentid1$COL_16),]  ### removable of NON_ENT details from entcirid column
+  dupentid1 <- dupentid1[!grepl("N_E", dupentid1$COL_16),]  ### removable of N_E details from entcirid column
   dupentid2 <- unique(dupentid1)
   print(dupentid2)
-cat("########## step_3 duplicate against cktid completed","\n")  
+cat("########## step_3 duplicate against ids completed","\n")  
    duplicatecktid <- dcast(setDT(dupentid2), COL_16~rowid(COL_16), value.var="KEYFIELD")
    print(duplicatecktid)
 cat("########## step_4 started","\n")     
