@@ -1,6 +1,8 @@
 # R-language
 
 mergingfile.R
+
+
 written with the assitance below URLs
           ## https://stackoverflow.com/questions/47021494/r-data-processing-involving-strsplit
           ## https://stackoverflow.com/questions/33199203/r-how-to-display-the-first-n-characters-from-a-string-of-words
